@@ -1,4 +1,6 @@
-# Sideflash
+<p align="center"><img src="assets/banner.svg" alt="Sideflash — one address, two payment paths" width="100%"></p>
+
+<p align="center"><a href="docs/protocol.md">Protocol</a> · <a href="docs/address-v0.md">Address format</a> · <a href="docs/ark-integration.md">Ark integration</a> · <a href="docs/lightning-integration.md">Lightning integration</a></p>
 
 Sideflash proposes one receive address for native Ark transfers and Lightning
 payments on **bitcoin (XBT)**. This repository targets XBT specifically,
@@ -6,10 +8,54 @@ not SHA-256 BTC. An address starts with `sfl1`. A compatible sender uses native 
 when both parties use the same server. Otherwise, it extracts an authenticated
 BOLT12 offer and pays over Lightning. The recipient receives Ark value.
 
-**Status: experimental protocol design and initial codec implementation.**
-No stable wire format, independent audit, or complete cross-server delivery
-implementation is claimed. Do not treat a valid address as proof of safe payment
-delivery. Do not use the development addresses for real payments yet.
+> **Experimental · Not audited · Not ready for real payments**
+>
+> Address encoding and authentication work in the prototype. Server payment
+> coordination and end-to-end Sideflash recovery are not implemented yet.
+> The format can change before a stable release. Never fund the test vectors.
+
+## One destination, the appropriate route
+
+| Sender | Intended payment path | Recipient |
+| :--- | :--- | :--- |
+| Ark wallet on the same server | Native Ark | Ark balance |
+| Ark wallet on another server | Lightning-backed transfer | Ark balance |
+| Lightning-only wallet | Extract BOLT12 offer and pay | Ark balance |
+
+These are the intended paths. The prototype verifies addresses and selects
+routes; it does not yet implement complete cross-server payments.
+
+```mermaid
+flowchart LR
+  A["sfl1… address"] --> V["Verify signed binding"]
+  V --> B{"Same server?"}
+  B -->|Yes| C["Native Ark"]
+  B -->|No| D["BOLT12 + delivery preparation"]
+  C --> E["Recipient's Ark balance"]
+  D --> E
+```
+
+## Development at a glance
+
+| Component | Status |
+| :--- | :--- |
+| Address codec, signatures and network separation | Implemented; unit tested |
+| Shared Rust/Python fixtures and synthetic QR checks | Passing |
+| Physical camera testing | Outstanding |
+| Server coordination and conditional recovery | Still to implement |
+| Independent security review | Outstanding |
+
+## Run the fixture checks
+
+Use Python 3.12 in a virtual environment:
+
+```sh
+python -m pip install -r tests/requirements.txt
+python tests/verify_vectors.py
+```
+
+See [test scope and limitations](tests/README.md). Fixture checks are not
+end-to-end payment or recovery tests.
 
 ## Read the protocol
 

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="320" viewBox="0 0 1200 320" role="img" aria-labelledby="title">
+<title id="title">Sideflash: one address, two payment paths</title>
+<rect width="1200" height="320" rx="24" fill="#101c2c"/>
+<text x="60" y="65" fill="#ff895b" font-family="Arial,sans-serif" font-size="15" letter-spacing="3">BITCOIN · ARK · LIGHTNING</text>
+<text x="55" y="158" fill="#f4f7fc" font-family="Arial,sans-serif" font-size="78" font-weight="700">Sideflash</text>
+<text x="60" y="210" fill="#c7d2e2" font-family="Arial,sans-serif" font-size="27">One address. Two payment paths.</text>
+<text x="60" y="269" fill="#93a6be" font-family="monospace" font-size="19">sfl1… / EXPERIMENTAL PROTOCOL</text>
+<path d="M880 65l-65 105h50l-29 91 86-122h-53z" fill="#ff682d"/>
+<path d="M990 75v75c0 35-42 35-42 70v25m42-95c0 35 42 35 42 70v25" stroke="#36506b" stroke-width="5" fill="none"/>
+<circle cx="990" cy="75" r="10" fill="#ff682d"/><circle cx="948" cy="245" r="8" fill="#c7d2e2"/><circle cx="1032" cy="245" r="8" fill="#c7d2e2"/>
+</svg>
