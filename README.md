@@ -41,6 +41,7 @@ flowchart LR
 | :--- | :--- |
 | Address codec, signatures and network separation | Implemented; unit tested |
 | Shared Rust/Python fixtures and synthetic QR checks | Passing |
+| Existing payment/recovery prerequisites | [7 isolated tests passed](docs/payment-recovery-evidence.md) |
 | Physical camera testing | Outstanding |
 | Server coordination and conditional recovery | Still to implement |
 | Independent security review | Outstanding |
