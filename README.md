@@ -20,6 +20,7 @@ delivery. Do not use the development addresses for real payments yet.
 - [Lightning wallet and node integration](docs/lightning-integration.md)
 - [Security requirements and acceptance tests](docs/security-and-tests.md)
 - [Implementation status and open decisions](docs/status.md)
+- [Stability decisions and evidence](docs/stability-decisions.md)
 - [Design whitepaper](whitepaper/sideflash-whitepaper.pdf)
 
 This repository is the protocol discussion and integration reference. The

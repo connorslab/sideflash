@@ -5,15 +5,25 @@ codec, separate recipient authorization and server acknowledgment, signature
 verification, candidate route selection and Lightning-only offer extraction.
 It has no deployed Sideflash endpoint and cannot initiate a Sideflash payment.
 
-Four focused XBT Sideflash tests and workspace compilation pass. The full unit
+Five focused XBT Sideflash tests and workspace compilation pass. The full unit
 suite has 36 failures also reproduced on the unchanged baseline in the test
 environment. This is not a clean full-suite release result.
 
 The version-0 wire document records the implementation profile. The whitepaper
 describes the broader design; proposed extensions are not implemented features.
 Where the prototype narrows that design, the wire document states the limitation.
+In particular, the wire document supersedes the whitepaper's proposed 2048-byte
+payload limit: the current profile supports 633 bytes and uses binary native
+address data. The whitepaper remains a historical design document.
 
 Before a stable version, decide and test:
+
+The [stability decisions](stability-decisions.md) now define the initial scope and
+track evidence for each item below. Mainnet/regtest fixtures are verified by Rust
+and a separate Python fixture checker. QR results are synthetic only. The initial
+profile deliberately rejects delegated and non-pubkey policies and requires an
+online recipient for the planned remote-delivery path. Server coordination,
+recovery construction and independent review remain open.
 
 1. Chain and fork discriminator assignments, including test networks.
 2. Canonical cross-implementation vectors and address size/QR practicality.

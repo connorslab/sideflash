@@ -1,0 +1,76 @@
+{
+  "fixtures_verified": 2,
+  "results": [
+    {
+      "network": "mainnet",
+      "characters": 911,
+      "payload_bytes": 563,
+      "qr": [
+        {
+          "ecc": "M",
+          "uppercase": false,
+          "version": 24,
+          "pixels": 484,
+          "synthetic_decode": true
+        },
+        {
+          "ecc": "M",
+          "uppercase": true,
+          "version": 20,
+          "pixels": 420,
+          "synthetic_decode": true
+        },
+        {
+          "ecc": "Q",
+          "uppercase": false,
+          "version": 30,
+          "pixels": 580,
+          "synthetic_decode": true
+        },
+        {
+          "ecc": "Q",
+          "uppercase": true,
+          "version": 24,
+          "pixels": 484,
+          "synthetic_decode": true
+        }
+      ]
+    },
+    {
+      "network": "regtest",
+      "characters": 967,
+      "payload_bytes": 598,
+      "qr": [
+        {
+          "ecc": "M",
+          "uppercase": false,
+          "version": 25,
+          "pixels": 500,
+          "synthetic_decode": true
+        },
+        {
+          "ecc": "M",
+          "uppercase": true,
+          "version": 20,
+          "pixels": 420,
+          "synthetic_decode": true
+        },
+        {
+          "ecc": "Q",
+          "uppercase": false,
+          "version": 30,
+          "pixels": 580,
+          "synthetic_decode": true
+        },
+        {
+          "ecc": "Q",
+          "uppercase": true,
+          "version": 25,
+          "pixels": 500,
+          "synthetic_decode": true
+        }
+      ]
+    }
+  ],
+  "limitations": "Synthetic image decode only; no phone-camera test or independent audit."
+}
