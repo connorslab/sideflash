@@ -14,9 +14,9 @@ unsupported policies, invalid signatures, wrong networks and unknown required
 features. Use distinct signature domains. Do not reuse payment signing domains.
 
 Do not expose recipient or payment directories. Authenticate status requests.
-Rate-limit registration and invoice requests. Restrict any future resolver URL
-to approved transports and network ranges, including after DNS resolution and
-redirects. Never let an address become a request to an internal metadata service.
+Rate-limit registration and invoice requests. Address decoding is offline and
+MUST NOT trigger resolver requests or redirects. Keep payment transport separate
+from parsing. Never let an address become a request to an internal metadata service.
 
 ## Required tests
 

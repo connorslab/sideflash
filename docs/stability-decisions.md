@@ -5,7 +5,9 @@ production readiness. All monetary references mean bitcoin (XBT).
 
 ## 1. Chain assignments
 
-Use the genesis hash and the v0 fork discriminator in `xbt-profile.md`. Permit
+Use the immutable compact-v1 table in `address-v1.md`, which expands the
+network code to the genesis hash and v0 fork discriminator in `xbt-profile.md`.
+Legacy v0 continues to carry the hashes explicitly. Permit
 mainnet and isolated regtest only. Reject signet and other test networks until
 their chain profiles are assigned and tested. A regtest genesis does not identify
 a particular private laboratory; deployments must also pin the destination
@@ -23,7 +25,11 @@ The prototype's 4096-character allowance exceeded the checksum library's code
 length. The initial profile now limits text to 1023 characters and payloads to
 633 bytes. Native address bytes replace nested native address text. Oversized
 offers fail; no truncation or silent resolver fallback is allowed. A compact
-profile is a future version, not an implicit alternate encoding.
+profile is now specified separately as v1, not an implicit alternate encoding.
+Its Python fixtures measure 785 mainnet and 841 regtest characters, with both
+signatures and the complete offer preserved. Rust migration is outstanding.
+See `tests/qr-report-v1.json` for synthetic QR results. The following numbers
+refer only to the legacy v0 fixtures.
 
 The frozen examples have 911 mainnet characters and 967 regtest characters.
 Synthetic QR round-trips pass at error-correction levels M and Q, in both cases.
@@ -48,13 +54,14 @@ Do not infer a URL from a node alias or search unknown servers. Lightning-only
 payers reach the offer's invoice-request route.
 
 Before preparing a payment, B must check that the registered mapping is current
-and active. A proposed resolution response binds a fresh 32-byte request nonce,
+and active. A proposed payment-preparation status response binds a fresh 32-byte request nonce,
 destination, mapping revision, response time and expiry under B's identity key.
 Limit response validity to 60 seconds and reject responses outside the accepted
 clock-skew window. Exact transport and skew configuration still need tests.
 
 Persist the highest accepted revision. Revocation blocks new intents and invoice
 issuance; it does not invalidate recovery obligations for existing intents.
+No address resolver or offer lookup is required in either wire profile.
 Offer rotation needs new recipient authorization. Server-key rotation requires
 an explicit newly authenticated address in v0, not a transparent redirect.
 Without an external transparency mechanism, a malicious server can equivocate;

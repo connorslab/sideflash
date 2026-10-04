@@ -6,7 +6,8 @@ Alice is the payer; Bob is the recipient. A is Alice's Ark server, if she has
 one. B is Bob's Ark server. A Lightning-only payer does not need A.
 
 Bob's address binds his native Ark destination to one reusable BOLT12 offer.
-It includes B's full public key, chain genesis, fork discriminator, validity
+It includes B's full public key, a network profile identifying chain genesis
+and fork discriminator (explicit hashes in legacy v0), validity
 interval and mapping revision. Bob signs the binding under his receiving policy.
 B verifies and countersigns it. The signatures authorize a route; they do not
 prove liquidity, current registration, or receipt of a VTXO.

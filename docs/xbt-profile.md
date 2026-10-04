@@ -4,7 +4,10 @@ All payment and integration guidance in this repository targets bitcoin
 (XBT). References to native Ark and Lightning mean their XBT-compatible versions.
 SHA-256 BTC interoperability is not a goal of this implementation profile.
 
-The address requires both a genesis hash and an explicit fork discriminator.
+Network verification requires both a genesis hash and an explicit fork
+discriminator. Compact [v1](address-v1.md#network-profile-assignments) carries
+a locally assigned profile code expanding to both values from a built-in table;
+no lookup is involved. Legacy v0 carries both values explicitly.
 Development profile v0 uses SHA256 of the ASCII string
 `Sideflash/XBT/blake2b-unified-sighash/v0`, without a terminating NUL. This is a
 Sideflash-local discriminator, not a claim of a globally registered chain ID.

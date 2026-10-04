@@ -9,7 +9,12 @@ Five focused XBT Sideflash tests and workspace compilation pass. The full unit
 suite has 36 failures also reproduced on the unchanged baseline in the test
 environment. This is not a clean full-suite release result.
 
-The version-0 wire document records the implementation profile. The whitepaper
+The [compact v1 wire document](address-v1.md) defines the current protocol
+proposal. A Python fixture codec, re-signed mainnet/regtest vectors, mutation and
+canonical-encoding tests, and synthetic QR checks are present. ASP/wallet Rust
+codecs still implement v0; they have not been upgraded or deployed for v1.
+
+The version-0 wire document records that legacy Rust implementation profile. The whitepaper
 describes the broader design; proposed extensions are not implemented features.
 Where the prototype narrows that design, the wire document states the limitation.
 In particular, the wire document supersedes the whitepaper's proposed 2048-byte
@@ -28,7 +33,7 @@ recovery construction and independent review remain open.
 1. Chain and fork discriminator assignments, including test networks.
 2. Canonical cross-implementation vectors and address size/QR practicality.
 3. Recipient policies beyond pubkey and delegated binding authority.
-4. Resolver discovery, fresh status, rotation and revocation semantics.
+4. Fresh status, rotation and revocation semantics without address lookups.
 5. Payment preparation APIs and persisted, idempotent state transitions.
 6. Exact preimage ownership and conditional VTXO recovery construction.
 7. Receiver-managed preparation for ordinary Lightning-only payers.

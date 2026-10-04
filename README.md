@@ -1,6 +1,6 @@
 <p align="center"><img src="assets/banner.svg" alt="Sideflash — one address, two payment paths" width="100%"></p>
 
-<p align="center"><a href="docs/protocol.md">Protocol</a> · <a href="docs/address-v0.md">Address format</a> · <a href="docs/ark-integration.md">Ark integration</a> · <a href="docs/lightning-integration.md">Lightning integration</a></p>
+<p align="center"><a href="docs/protocol.md">Protocol</a> · <a href="docs/address-v1.md">Address format</a> · <a href="docs/ark-integration.md">Ark integration</a> · <a href="docs/lightning-integration.md">Lightning integration</a></p>
 
 Sideflash proposes one receive address for native Ark transfers and Lightning
 payments on **bitcoin (XBT)**. This repository targets XBT specifically,
@@ -39,12 +39,20 @@ flowchart LR
 
 | Component | Status |
 | :--- | :--- |
-| Address codec, signatures and network separation | Implemented; unit tested |
-| Shared Rust/Python fixtures and synthetic QR checks | Passing |
+| Legacy v0 Rust codec and signatures | Implemented; unit tested |
+| Compact embedded v1 codec and signed fixtures | Python fixture implementation; tests pass |
+| Compact v1 ASP/wallet support | Rust migration outstanding |
+| Synthetic QR checks (v0 and v1) | Passing; not physical camera tests |
 | Existing payment/recovery prerequisites | [7 isolated tests passed](docs/payment-recovery-evidence.md) |
 | Physical camera testing | Outstanding |
 | Server coordination and conditional recovery | Still to implement |
 | Independent security review | Outstanding |
+
+The compact v1 examples retain the complete BOLT12 offer, Ark destination and
+both signatures with no address lookup: **785 characters instead of 911** for
+the mainnet fixture, and **841 instead of 967** for regtest. Network profiles are
+built into the codec. Version 0 remains documented for existing prototypes;
+version 1 requires new signatures and is not deployed in ASP/wallet releases.
 
 ## Run the fixture checks
 
@@ -53,6 +61,7 @@ Use Python 3.12 in a virtual environment:
 ```sh
 python -m pip install -r tests/requirements.txt
 python tests/verify_vectors.py
+python tests/test_compact_v1.py
 ```
 
 See [test scope and limitations](tests/README.md). Fixture checks are not
@@ -62,7 +71,7 @@ end-to-end payment or recovery tests.
 
 - [XBT network and feature requirements](docs/xbt-profile.md)
 - [Protocol overview and payment lifecycle](docs/protocol.md)
-- [Development address wire specification](docs/address-v0.md)
+- [Development address wire specification](docs/address-v1.md)
 - [Ark server and wallet integration](docs/ark-integration.md)
 - [Lightning wallet and node integration](docs/lightning-integration.md)
 - [Security requirements and acceptance tests](docs/security-and-tests.md)

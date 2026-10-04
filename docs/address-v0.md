@@ -1,4 +1,8 @@
-# Sideflash development wire profile
+# Legacy Sideflash development wire profile v0
+
+This historical profile remains implemented by the Rust prototype. New compact
+protocol work uses [v1](address-v1.md); it is not wire-compatible and needs new
+signatures. Do not interpret the new array as this map.
 
 This profile targets bitcoin (XBT), not SHA-256 BTC. The development fork
 discriminator is SHA256 of ASCII `Sideflash/XBT/blake2b-unified-sighash/v0` (no

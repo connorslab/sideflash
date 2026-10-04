@@ -12,7 +12,8 @@ Sideflash destination. It needs an address decoder and binding verifier:
 4. Request and validate an invoice through normal BOLT12 mechanisms.
 5. Approve the amount and fees, then pay using the existing Lightning engine.
 
-The prototype API is `SideflashAddress::decode` followed by `verified_offer`.
+The legacy v0 Rust prototype API is `SideflashAddress::decode` followed by `verified_offer`.
+Compact v1 currently has a Python fixture codec only; Rust migration remains open.
 It requires caller-supplied chain context and an authenticated destination server
 key. It verifies the binding, not current revocation or Ark delivery. A future
 portable decoder need not embed a complete Ark wallet; it does need enough
@@ -50,6 +51,6 @@ automatic retry of a payment that might have succeeded.
 
 Extraction can be offline. Do not upload addresses to a third-party decoding
 service. Reusable addresses remain linkable. Blinded Lightning paths do not
-hide the recipient mapping from the Ark server that maintains it. If future
-profiles include resolver URLs, apply strict network-access restrictions and
-explicit Tor transport support rather than following arbitrary URLs.
+hide the recipient mapping from the Ark server that maintains it. Both address
+profiles are fully embedded and contain no resolver URL. Tor transport for
+payment communication is separate from local address decoding.
