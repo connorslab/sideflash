@@ -1,7 +1,7 @@
 # Sideflash
 
 Sideflash proposes one receive address for native Ark transfers and Lightning
-payments on **Blake2b Bitcoin (XBT)**. This repository targets XBT specifically,
+payments on **bitcoin (XBT)**. This repository targets XBT specifically,
 not SHA-256 BTC. An address starts with `sfl1`. A compatible sender uses native Ark
 when both parties use the same server. Otherwise, it extracts an authenticated
 BOLT12 offer and pays over Lightning. The recipient receives Ark value.

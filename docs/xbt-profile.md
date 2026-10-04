@@ -1,6 +1,6 @@
 # XBT network profile
 
-All payment and integration guidance in this repository targets Blake2b Bitcoin
+All payment and integration guidance in this repository targets bitcoin
 (XBT). References to native Ark and Lightning mean their XBT-compatible versions.
 SHA-256 BTC interoperability is not a goal of this implementation profile.
 
