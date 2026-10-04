@@ -78,7 +78,7 @@ end-to-end payment or recovery tests.
 - [Security requirements and acceptance tests](docs/security-and-tests.md)
 - [Implementation status and open decisions](docs/status.md)
 - [Stability decisions and evidence](docs/stability-decisions.md)
-- [Design whitepaper](whitepaper/sideflash-whitepaper.pdf)
+- [Whitepaper v0.2: compact embedded addresses](whitepaper/sideflash-whitepaper.pdf)
 
 This repository is the protocol discussion and integration reference. The
 experimental Rust implementation lives in the

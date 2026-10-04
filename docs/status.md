@@ -16,12 +16,10 @@ feature branches now create v1 and retain v0 readers. Six codec tests and worksp
 checks pass in each branch, including the feature-enabled wallet build. No stable
 release or production deployment includes these changes yet.
 
-The version-0 wire document records that legacy Rust implementation profile. The whitepaper
-describes the broader design; proposed extensions are not implemented features.
-Where the prototype narrows that design, the wire document states the limitation.
-In particular, the wire document supersedes the whitepaper's proposed 2048-byte
-payload limit: the current profile supports 633 bytes and uses binary native
-address data. The whitepaper remains a historical design document.
+The version-0 wire document records the legacy encoding. Whitepaper v0.2 now
+describes compact wire v1, the 633-byte limit, measured sizes and version migration.
+It supersedes v0.1's larger proposed limits and resolver options. Payment preparation
+and recovery requirements in the paper are not claims of implemented delivery.
 
 Before a stable version, decide and test:
 
