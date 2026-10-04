@@ -5,14 +5,16 @@ codec, separate recipient authorization and server acknowledgment, signature
 verification, candidate route selection and Lightning-only offer extraction.
 It has no deployed Sideflash endpoint and cannot initiate a Sideflash payment.
 
-Five focused XBT Sideflash tests and workspace compilation pass. The full unit
+Six focused XBT Sideflash tests and workspace compilation pass in both feature branches. The full unit
 suite has 36 failures also reproduced on the unchanged baseline in the test
 environment. This is not a clean full-suite release result.
 
 The [compact v1 wire document](address-v1.md) defines the current protocol
 proposal. A Python fixture codec, re-signed mainnet/regtest vectors, mutation and
 canonical-encoding tests, and synthetic QR checks are present. ASP/wallet Rust
-codecs still implement v0; they have not been upgraded or deployed for v1.
+feature branches now create v1 and retain v0 readers. Six codec tests and workspace
+checks pass in each branch, including the feature-enabled wallet build. No stable
+release or production deployment includes these changes yet.
 
 The version-0 wire document records that legacy Rust implementation profile. The whitepaper
 describes the broader design; proposed extensions are not implemented features.

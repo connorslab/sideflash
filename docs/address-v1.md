@@ -1,8 +1,8 @@
 # Compact embedded address profile v1
 
 Experimental, unassigned development profile. Implemented in the protocol
-repository's Python fixture codec; **not yet supported by the ASP or wallet Rust
-codecs**. No resolver, registry lookup, redirect or external offer reference is
+repository's Python fixture codec and the ASP/wallet `feature/sideflash` Rust
+codecs. **Not deployed in stable releases**. No resolver, registry lookup, redirect or external offer reference is
 used. Offline decoding recovers the complete offer. Payment and fresh invoice
 negotiation still require connectivity.
 
@@ -110,4 +110,6 @@ See [v1 fixtures](../tests/vectors/sideflash-v1.json), the bounded
 [fixture codec](../tests/compact_v1.py), [tests](../tests/test_compact_v1.py), and
 [synthetic QR results](../tests/qr-report-v1.json). These are not an independent
 complete implementation, production payment parser or security audit. Physical
-camera tests, Rust migration and complete delivery/recovery tests remain open.
+camera tests and complete delivery/recovery tests remain open. Both Rust feature
+branches pass six codec tests against the shared v0/v1 fixtures and workspace
+checks; the wallet feature-enabled build also passes.

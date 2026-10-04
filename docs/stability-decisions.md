@@ -27,7 +27,7 @@ length. The initial profile now limits text to 1023 characters and payloads to
 offers fail; no truncation or silent resolver fallback is allowed. A compact
 profile is now specified separately as v1, not an implicit alternate encoding.
 Its Python fixtures measure 785 mainnet and 841 regtest characters, with both
-signatures and the complete offer preserved. Rust migration is outstanding.
+signatures and the complete offer preserved. Rust feature branches now support both versions; stable deployment is outstanding.
 See `tests/qr-report-v1.json` for synthetic QR results. The following numbers
 refer only to the legacy v0 fixtures.
 

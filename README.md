@@ -41,7 +41,7 @@ flowchart LR
 | :--- | :--- |
 | Legacy v0 Rust codec and signatures | Implemented; unit tested |
 | Compact embedded v1 codec and signed fixtures | Python fixture implementation; tests pass |
-| Compact v1 ASP/wallet support | Rust migration outstanding |
+| Compact v1 ASP/wallet support | Feature branches migrated; six codec tests and compilation pass |
 | Synthetic QR checks (v0 and v1) | Passing; not physical camera tests |
 | Existing payment/recovery prerequisites | [7 isolated tests passed](docs/payment-recovery-evidence.md) |
 | Physical camera testing | Outstanding |
@@ -52,7 +52,8 @@ The compact v1 examples retain the complete BOLT12 offer, Ark destination and
 both signatures with no address lookup: **785 characters instead of 911** for
 the mainnet fixture, and **841 instead of 967** for regtest. Network profiles are
 built into the codec. Version 0 remains documented for existing prototypes;
-version 1 requires new signatures and is not deployed in ASP/wallet releases.
+version 1 requires new signatures. Both feature branches support it, but it is
+not deployed in ASP/wallet releases.
 
 ## Run the fixture checks
 

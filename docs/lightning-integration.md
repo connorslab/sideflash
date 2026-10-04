@@ -12,8 +12,8 @@ Sideflash destination. It needs an address decoder and binding verifier:
 4. Request and validate an invoice through normal BOLT12 mechanisms.
 5. Approve the amount and fees, then pay using the existing Lightning engine.
 
-The legacy v0 Rust prototype API is `SideflashAddress::decode` followed by `verified_offer`.
-Compact v1 currently has a Python fixture codec only; Rust migration remains open.
+The Rust prototype API for both v0 and v1 is `SideflashAddress::decode` followed by `verified_offer`.
+New authorizations use compact v1. The same frozen vectors pass in Python and Rust.
 It requires caller-supplied chain context and an authenticated destination server
 key. It verifies the binding, not current revocation or Ark delivery. A future
 portable decoder need not embed a complete Ark wallet; it does need enough
